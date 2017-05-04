@@ -1,6 +1,6 @@
 {
   "name": "webcomponents.js",
-  "version": "1.0.0-rc.11",
+  "version": "1.0.0-rc.11-vaadin",
   "description": "webcomponents.js",
   "main": "webcomponents.js",
   "directories": {
