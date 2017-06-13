@@ -38,7 +38,7 @@
     var newScript = document.createElement('script');
     // Load it from the right place.
     var replacement = 'webcomponents-' + polyfills.join('-') + '.js';
-    if (window.WebComponents.base) {
+    if (typeof window.WebComponents.base === 'string') {
       newScript.src = window.WebComponents.base + replacement;
     } else {
       var script = document.querySelector('script[src*="' + name +'"]');
