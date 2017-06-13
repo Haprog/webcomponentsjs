@@ -35,12 +35,15 @@
   }
 
   if (polyfills.length) {
-    var script = document.querySelector('script[src*="' + name +'"]');
     var newScript = document.createElement('script');
     // Load it from the right place.
     var replacement = 'webcomponents-' + polyfills.join('-') + '.js';
-    var url = script.src.replace(name, replacement);
-    newScript.src = url;
+    if (window.WebComponents.base) {
+      newScript.src = window.WebComponents.base + replacement;
+    } else {
+      var script = document.querySelector('script[src*="' + name +'"]');
+      newScript.src = script.src.replace(name, replacement);
+    }
     // NOTE: this is required to ensure the polyfills are loaded before
     // *native* html imports load on older Chrome versions. This *is* CSP
     // compliant since CSP rules must have allowed this script to run.
